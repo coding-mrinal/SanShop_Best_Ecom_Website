@@ -19,9 +19,7 @@
 - **Shopping Cart** - Add, remove, and update product quantities seamlessly
 - **User Authentication** - Secure login and registration system
 - **Order Management** - Track orders and view order history
-- **Payment Integration** - Secure checkout process with multiple payment options
 - **Product Search** - Find products quickly with intelligent search
-- **Product Reviews** - Read and write product reviews and ratings
 
 ### 🎨 User Experience
 - **Responsive Design** - Perfect experience across all devices (mobile, tablet, desktop)
