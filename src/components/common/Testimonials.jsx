@@ -1,4 +1,3 @@
-// src/components/common/Testimonials.jsx
 import React, { useState, useEffect, useCallback } from 'react';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 

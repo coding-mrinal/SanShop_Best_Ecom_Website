@@ -35,7 +35,6 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Background */}
       <div className="fixed inset-0 -z-20">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-cyan-50 to-teal-50 dark:from-slate-900 dark:via-slate-800 dark:to-teal-950"></div>
         <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-teal-200/30 to-cyan-300/30 rounded-full blur-3xl animate-pulse"></div>
@@ -58,7 +57,6 @@ const ContactPage = () => {
       </div>
       <div className="fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-teal-100/30 via-transparent to-violet-100/20 dark:from-teal-900/30 dark:to-violet-900/20"></div>
 
-      {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-teal-500/95 via-cyan-600/95 to-violet-600/95 dark:from-teal-700/95 dark:via-cyan-800/95 dark:to-violet-800/95"></div>

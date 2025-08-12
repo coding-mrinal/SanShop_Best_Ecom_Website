@@ -7,7 +7,6 @@ export const ThemeProvider = ({ children }) => {
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
-    // Add/remove dark class to document element for Tailwind CSS
     if (!darkMode) {
       document.documentElement.classList.add('dark');
     } else {

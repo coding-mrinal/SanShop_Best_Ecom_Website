@@ -114,7 +114,6 @@ const SettingsPage = () => {
     }
   ]);
 
-  // Button Component
   const Button = ({ variant = 'outline', color = 'gray', size = 'md', icon: Icon, children, className = '', ...props }) => {
     const sizeClasses = {
       sm: 'px-3 py-1.5 text-sm',
@@ -217,7 +216,6 @@ const SettingsPage = () => {
         </div>
         
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Sidebar */}
           <div className="lg:w-1/4">
             <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-6 border border-gray-200 dark:border-gray-700 sticky top-24">
               <div className="flex items-center mb-6">
@@ -252,11 +250,9 @@ const SettingsPage = () => {
             </div>
           </div>
           
-          {/* Main Content */}
           <div className="lg:w-3/4">
             <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700">
               
-              {/* Profile Tab */}
               {activeTab === 'profile' && (
                 <div>
                   <div className="flex items-center justify-between mb-6">
@@ -309,7 +305,6 @@ const SettingsPage = () => {
                 </div>
               )}
 
-              {/* Order History Tab */}
               {activeTab === 'orders' && (
                 <div>
                   <div className="flex items-center justify-between mb-6">
@@ -343,7 +338,6 @@ const SettingsPage = () => {
                 </div>
               )}
 
-              {/* Addresses Tab */}
               {activeTab === 'addresses' && (
                 <div>
                   <div className="flex items-center justify-between mb-6">
@@ -381,7 +375,6 @@ const SettingsPage = () => {
                 </div>
               )}
 
-              {/* Payment Methods Tab */}
               {activeTab === 'payment' && (
                 <div>
                   <div className="flex items-center justify-between mb-6">
@@ -421,7 +414,6 @@ const SettingsPage = () => {
                 </div>
               )}
 
-              {/* Wishlist Tab */}
               {activeTab === 'wishlist' && (
                 <div>
                   <div className="flex items-center justify-between mb-6">
@@ -446,7 +438,6 @@ const SettingsPage = () => {
                 </div>
               )}
             
-              {/* Notifications Tab */}
               {activeTab === 'notifications' && (
                 <div>
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Notification Preferences</h2>
@@ -508,7 +499,6 @@ const SettingsPage = () => {
                 </div>
               )}
             
-              {/* Security Tab */}
               {activeTab === 'security' && (
                 <div>
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Security Settings</h2>
@@ -600,7 +590,6 @@ const SettingsPage = () => {
                 </div>
               )}
             
-              {/* Preferences Tab */}
               {activeTab === 'preferences' && (
                 <div>
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Preferences</h2>

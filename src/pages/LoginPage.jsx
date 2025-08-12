@@ -1,4 +1,3 @@
-// src/pages/LoginPage.jsx
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useUser } from "../context/UserContext";
@@ -53,7 +52,6 @@ const LoginPage = () => {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-50/80 via-amber-50/80 to-rose-100/50 dark:from-gray-900 dark:via-rose-900/10 dark:to-rose-900/20 py-12 px-4 sm:px-6">
       <div className="max-w-6xl w-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-rose-100/50 dark:border-rose-900/20 overflow-hidden">
         <div className="flex flex-col lg:flex-row">
-          {/* Left Column - Image */}
           <div className="lg:w-1/2 hidden lg:block relative">
             <div 
               className="h-full w-full bg-cover bg-center bg-no-repeat"
@@ -63,7 +61,6 @@ const LoginPage = () => {
             </div>
           </div>
           
-          {/* Right Column - Form */}
           <div className="lg:w-1/2 p-10">
             <div className="max-w-md mx-auto">
               <div className="text-center lg:text-left mb-8">

@@ -1,12 +1,9 @@
-// src/components/common/ValueProposition.jsx
 import React from 'react';
-// Icons imported but no longer used in the card rendering
 import { Truck, RotateCw, ShieldCheck, Headset } from 'lucide-react';
 
 const ValueProposition = () => {
   const propositions = [
     {
-      // icon: <Truck className="h-10 w-10" />, // Icon removed from data
       headline: "Free & Fast Shipping",
       text: "On all orders over $50. We deliver across the country in 3-5 business days.",
       gradient: "from-blue-500 to-cyan-500",
@@ -14,7 +11,6 @@ const ValueProposition = () => {
       darkBgGradient: "from-blue-900/20 to-cyan-900/20"
     },
     {
-      // icon: <RotateCw className="h-10 w-10" />, // Icon removed from data
       headline: "Easy Returns",
       text: "Not satisfied? Return your product within 30 days for a hassle-free exchange or refund.",
       gradient: "from-emerald-500 to-teal-500",
@@ -22,7 +18,6 @@ const ValueProposition = () => {
       darkBgGradient: "from-emerald-900/20 to-teal-900/20"
     },
     {
-      // icon: <ShieldCheck className="h-10 w-10" />, // Icon removed from data
       headline: "Secure Payments",
       text: "We accept all major credit cards, PayPal, and Apple Pay with 100% secure transactions.",
       gradient: "from-purple-500 to-indigo-500",
@@ -30,7 +25,6 @@ const ValueProposition = () => {
       darkBgGradient: "from-purple-900/20 to-indigo-900/20"
     },
     {
-      // icon: <Headset className="h-10 w-10" />, // Icon removed from data
       headline: "24/7 Support",
       text: "Our customer support team is here to help you around the clock via chat, email, or phone.",
       gradient: "from-orange-500 to-red-500",
@@ -43,7 +37,6 @@ const ValueProposition = () => {
     <section className="bg-gradient-to-br from-gray-50 via-white to-slate-100 dark:from-gray-900 dark:via-slate-800 dark:to-gray-900 py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          {/* Enhanced main title font style */}
           <h2 className="text-4xl md:text-5xl font-bold font-serif bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-4">
             Why Choose Us?
           </h2>
@@ -57,9 +50,7 @@ const ValueProposition = () => {
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${prop.bgGradient} dark:${prop.darkBgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
               <div className="relative z-10">
-                {/* Icon container removed, padding adjusted */}
                 <div className="mb-4"></div> 
-                {/* Enhanced headline font style */}
                 <h3 className="text-2xl font-bold font-serif mb-4 text-gray-900 dark:text-white group-hover:text-gray-800 dark:group-hover:text-white transition-colors">
                   {prop.headline}
                 </h3>

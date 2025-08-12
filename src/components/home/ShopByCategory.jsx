@@ -1,17 +1,12 @@
-// src/components/home/ShopByCategory.jsx
 import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
-// Function to generate a unique Picsum URL with a random seed
-// Note: Using Picsum might sometimes lead to issues like 403/429 errors or Cloudflare blocks.
-// Consider having a local fallback image or a different image service if problems persist.
 const generateRandomCategoryImageURL = (id, width = 300, height = 200) => {
   const seed = `category_${id}_${Math.floor(Math.random() * 10000)}`;
   return `https://picsum.photos/seed/${seed}/${width}/${height}`;
 };
 
-// Fallback image URL in case Picsum fails
 const FALLBACK_CATEGORY_IMAGE = "https://placehold.co/300x200?text=Category+Image";
 
 const ShopByCategory = () => {
@@ -20,12 +15,10 @@ const ShopByCategory = () => {
   const [showRightButton, setShowRightButton] = useState(true);
 
   const categories = [
-    // Original Categories
     { id: 1, name: "Electronics", image: generateRandomCategoryImageURL(1), slug: "electronics", gradient: "from-indigo-500 to-purple-600" },
     { id: 2, name: "Clothing", image: generateRandomCategoryImageURL(2), slug: "clothing", gradient: "from-pink-500 to-rose-600" },
     { id: 3, name: "Home & Kitchen", image: generateRandomCategoryImageURL(3), slug: "home-kitchen", gradient: "from-emerald-500 to-teal-600" },
     { id: 4, name: "Beauty", image: generateRandomCategoryImageURL(4), slug: "beauty", gradient: "from-amber-500 to-orange-600" },
-    // New Categories with Aesthetic Schemes
     { id: 5, name: "Sports & Outdoors", image: generateRandomCategoryImageURL(5), slug: "sports-outdoors", gradient: "from-blue-500 to-cyan-500" },
     { id: 6, name: "Books & Media", image: generateRandomCategoryImageURL(6), slug: "books-media", gradient: "from-violet-500 to-purple-500" },
     { id: 7, name: "Toys & Games", image: generateRandomCategoryImageURL(7), slug: "toys-games", gradient: "from-red-500 to-pink-500" },
@@ -34,41 +27,34 @@ const ShopByCategory = () => {
     { id: 10, name: "Jewelry", image: generateRandomCategoryImageURL(10), slug: "jewelry", gradient: "from-yellow-500 to-amber-300" },
   ];
 
-  // Check scroll position to show/hide buttons
   const checkScrollButtons = () => {
     const container = scrollContainerRef.current;
     if (container) {
       const { scrollLeft, scrollWidth, clientWidth } = container;
-      // Add a small tolerance for floating point inaccuracies
       const tolerance = 1;
       setShowLeftButton(scrollLeft > tolerance);
       setShowRightButton(scrollLeft + clientWidth < scrollWidth - tolerance);
     }
   };
 
-  // Handle scroll event
   const handleScroll = () => {
     checkScrollButtons();
   };
 
-  // Scroll left or right
   const scroll = (direction) => {
     const container = scrollContainerRef.current;
     if (container) {
-      // Calculate width of one item plus its gap for smoother scrolling
-      // Approximate gap sizes: xs=12px (3*4), sm=16px (4*4), md=20px (5*4)
-      // This is a simplified calculation, actual gap might vary slightly with responsive changes
-      const gapXs = 3 * 4; // 3 * theme spacing unit (4px)
-      const gapSm = 4 * 4; // 4 * theme spacing unit (4px)
-      const gapMd = 5 * 4; // 5 * theme spacing unit (4px)
+      const gapXs = 3 * 4;
+      const gapSm = 4 * 4;
+      const gapMd = 5 * 4;
 
       let itemWidth;
-      if (window.innerWidth >= 768) { // md breakpoint
-        itemWidth = (container.clientWidth - gapMd * 4) / 5; // 5 items, 4 gaps
-      } else if (window.innerWidth >= 640) { // sm breakpoint
-        itemWidth = (container.clientWidth - gapSm * 3) / 4; // 4 items, 3 gaps (fallback if less than 5 fit)
+      if (window.innerWidth >= 768) {
+        itemWidth = (container.clientWidth - gapMd * 4) / 5;
+      } else if (window.innerWidth >= 640) {
+        itemWidth = (container.clientWidth - gapSm * 3) / 4;
       } else {
-         itemWidth = (container.clientWidth - gapXs * 1) / 2; // 2 items, 1 gap (fallback if less than 5 fit)
+         itemWidth = (container.clientWidth - gapXs * 1) / 2;
       }
       const scrollAmount = itemWidth + (window.innerWidth >= 768 ? gapMd : (window.innerWidth >= 640 ? gapSm : gapXs));
 
@@ -79,17 +65,14 @@ const ShopByCategory = () => {
     }
   };
 
-  // Add event listeners for scroll and resize
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (container) {
       container.addEventListener('scroll', handleScroll);
       window.addEventListener('resize', checkScrollButtons);
-      // Initial check
       checkScrollButtons();
     }
 
-    // Cleanup
     return () => {
       if (container) {
         container.removeEventListener('scroll', handleScroll);
@@ -108,9 +91,7 @@ const ShopByCategory = () => {
           <p className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400">Discover amazing products in every category</p>
         </div>
 
-        {/* Horizontal Scroll Container with Navigation Buttons */}
         <div className="relative">
-          {/* Left Scroll Button */}
           {showLeftButton && (
             <button
               onClick={() => scroll('left')}
@@ -121,18 +102,16 @@ const ShopByCategory = () => {
             </button>
           )}
 
-          {/* Scrollable Content Area */}
           <div
             ref={scrollContainerRef}
             className="overflow-x-auto pb-4 hide-scrollbar scroll-smooth"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }} // Hide scrollbar for Firefox and IE/Edge
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             <style jsx>{`
               div::-webkit-scrollbar {
                 display: none; /* Hide scrollbar for Chrome/Safari/Opera */
               }
             `}</style>
-            {/* Grid adjusted to show 5 items by default on larger screens */}
             <div
               className="grid grid-flow-col auto-cols-[minmax(calc((100%-12px)/2),1fr)] sm:auto-cols-[minmax(calc((100%-16px)/3),1fr)] md:auto-cols-[minmax(calc((100%-20px)*0.2-4px),1fr)] gap-3 sm:gap-4 md:gap-5 px-1 snap-x snap-mandatory"
               onScroll={handleScroll}
@@ -143,13 +122,12 @@ const ShopByCategory = () => {
                     to={`/category/${category.slug}`}
                     className="group block overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] h-full"
                   >
-                    <div className="relative pb-[75%]"> {/* Aspect ratio 4:3 */}
+                    <div className="relative pb-[75%]">
                       <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-90`}></div>
                       <img
                         src={category.image}
                         alt={category.name}
                         className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                        // Simplified fallback to a static placeholder
                         onError={(e) => {
                           e.target.src = FALLBACK_CATEGORY_IMAGE;
                         }}
@@ -169,7 +147,6 @@ const ShopByCategory = () => {
             </div>
           </div>
 
-          {/* Right Scroll Button */}
           {showRightButton && (
             <button
               onClick={() => scroll('right')}

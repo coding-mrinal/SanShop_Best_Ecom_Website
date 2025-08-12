@@ -1,4 +1,3 @@
-// src/pages/CategoriesPage.jsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCart, ArrowRight, Mail } from "lucide-react";
@@ -6,7 +5,6 @@ import { ShoppingCart, ArrowRight, Mail } from "lucide-react";
 const CategoriesPage = () => {
   const [email, setEmail] = useState("");
 
-  // Mock data for categories - Added Toys & Games and Jewelry
   const categories = [
     {
       id: "electronics",
@@ -115,7 +113,6 @@ const CategoriesPage = () => {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Enhanced Aesthetic Background */}
       <div className="fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-50/80 dark:from-gray-900 dark:via-slate-800 dark:to-indigo-900"></div>
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-pink-300/30 to-rose-400/20 rounded-full blur-3xl animate-pulse"></div>
@@ -138,7 +135,6 @@ const CategoriesPage = () => {
         </div>
       </div>
 
-      {/* Hero Section */}
       <div className="relative">
         <div className="bg-white/10 dark:bg-gray-900/20 backdrop-blur-xl h-full"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 via-purple-600/20 to-pink-500/20 backdrop-blur-md border border-white/20"></div>
@@ -160,7 +156,6 @@ const CategoriesPage = () => {
       </div>
 
       <div className="container mx-auto px-4 py-16 relative">
-        {/* Main Category Grid */}
         <div className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Shop by Category</h2>
@@ -218,7 +213,6 @@ const CategoriesPage = () => {
           </div>
         </div>
 
-        {/* Newsletter Signup */}
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-2xl p-[2px]">
             <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-2xl h-full"></div>

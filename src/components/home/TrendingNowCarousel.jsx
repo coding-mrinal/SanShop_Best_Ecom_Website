@@ -1,16 +1,13 @@
-// src/components/home/TrendingNowCarousel.jsx
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Star, ChevronLeft, ChevronRight, TrendingUp } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
-// Function to generate a unique Picsum URL with a random seed
 const generateRandomImageURL = (id, width = 300, height = 300) => {
   const seed = `product_${id}_${Math.floor(Math.random() * 10000)}`;
   return `https://picsum.photos/seed/${seed}/${width}/${height}`;
 };
 
-// Increased number of mock products
 const mockTrendingProductsData = [
   {
     id: 101, name: "Wireless Noise Cancelling Headphones", price: "129.99", originalPrice: "199.99",
@@ -46,11 +43,10 @@ const mockTrendingProductsData = [
   },
 ];
 
-// Helper function for conditional classes based on theme
 const cls = (darkMode, light, dark) => (darkMode ? dark : light);
 
 const TrendingNowCarousel = () => {
-  const extendedProducts = [...mockTrendingProductsData, ...mockTrendingProductsData]; // For infinite scroll
+  const extendedProducts = [...mockTrendingProductsData, ...mockTrendingProductsData];
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -94,7 +90,6 @@ const TrendingNowCarousel = () => {
     textMuted: cls(darkMode, 'text-slate-500', 'text-gray-400'),
     badge: cls(darkMode, 'bg-red-100 text-red-700', 'bg-red-900/50 text-red-300'),
     discount: cls(darkMode, 'bg-green-100 text-green-700', 'bg-green-900/50 text-green-300'),
-    // Updated button classes using the neon glow effect
     shopNowButton: cls(
       darkMode,
       'border border-purple-300/80 text-purple-600 hover:border-purple-400 hover:text-purple-700 hover:shadow-[0_0_8px_-2px] hover:shadow-purple-300/50 bg-white',
@@ -139,7 +134,6 @@ const TrendingNowCarousel = () => {
               {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
             </div>
           </div>
-          {/* Updated "Shop Now" button with neon glow effect */}
           <Link
             to={`/product/${product.id}`}
             className={`inline-flex items-center px-5 py-2.5 md:px-6 md:py-3 rounded-lg md:rounded-xl font-bold text-base md:text-lg transition-all duration-300 hover:scale-105 ${themeClasses.shopNowButton} shadow-md md:shadow-lg`}

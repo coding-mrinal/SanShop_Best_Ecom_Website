@@ -1,4 +1,3 @@
-// src/pages/ProfilePage.jsx
 import React, { useState } from 'react';
 import { useUser } from '../context/UserContext';
 import { User, MapPin, CreditCard, ShoppingBag, Heart, Bell, Shield, HelpCircle, Edit, Trash2, Plus, Eye, EyeOff, Lock, Phone, Mail, Key } from 'lucide-react';
@@ -100,7 +99,6 @@ const ProfilePage = () => {
       <div className="container mx-auto">
         <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8">My Account</h1>
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Sidebar */}
           <div className="lg:w-1/4">
             <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 p-6">
               <div className="flex items-center mb-6 p-4 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 shadow">
@@ -133,10 +131,8 @@ const ProfilePage = () => {
             </div>
           </div>
 
-          {/* Main Content */}
           <div className="lg:w-3/4">
             <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 p-8">
-              {/* Personal Information Tab */}
               {activeTab === 'profile' && (
                 <div>
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Personal Information</h2>
@@ -157,7 +153,6 @@ const ProfilePage = () => {
                 </div>
               )}
 
-              {/* Order History Tab */}
               {activeTab === 'orders' && (
                 <div>
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Order History</h2>
@@ -191,7 +186,6 @@ const ProfilePage = () => {
                 </div>
               )}
 
-              {/* Address Book Tab */}
               {activeTab === 'address' && (
                 <div>
                   {renderSectionHeader('Address Book', 'Add New Address', Plus)}
@@ -218,7 +212,6 @@ const ProfilePage = () => {
                 </div>
               )}
 
-              {/* Payment Methods Tab */}
               {activeTab === 'payment' && (
                 <div>
                   {renderSectionHeader('Payment Methods', 'Add Payment Method', Plus)}
@@ -259,7 +252,6 @@ const ProfilePage = () => {
                 </div>
               )}
 
-              {/* Wishlist Tab */}
               {activeTab === 'wishlist' && (
                 <div>
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">My Wishlist</h2>
@@ -284,7 +276,6 @@ const ProfilePage = () => {
                 </div>
               )}
 
-              {/* Notifications Tab */}
               {activeTab === 'notifications' && (
                 <div>
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Notification Preferences</h2>
@@ -313,7 +304,6 @@ const ProfilePage = () => {
                 </div>
               )}
 
-              {/* Security Tab */}
               {activeTab === 'security' && (
                 <div>
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Security Settings</h2>
@@ -358,7 +348,6 @@ const ProfilePage = () => {
                 </div>
               )}
 
-              {/* Help & Support Tab */}
               {activeTab === 'support' && (
                 <div>
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Help & Support</h2>

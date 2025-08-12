@@ -26,7 +26,6 @@ const CartPage = () => {
 
   const moveBackToCart = (item) => {
     setSavedForLater(savedForLater.filter(saved => saved.id !== item.id));
-    // Add back to cart logic here
   };
 
   const Button = ({ variant = 'outline', color = 'gray', size = 'md', icon: Icon, children, className = '', ...props }) => {
@@ -100,16 +99,14 @@ const CartPage = () => {
               {items.map((item, index) => (
                 <div key={item.id} className={`p-6 ${index !== items.length - 1 ? 'border-b border-gray-200 dark:border-gray-700' : ''}`}>
                   <div className="flex flex-col sm:flex-row gap-6">
-                    {/* Product Image */}
                     <div className="w-full sm:w-32 h-32 flex-shrink-0">
                       <img 
-                        src={item.image || 'https://placehold.co/128x128'} 
+                        src={item.image || 'https://placehold.co/128x128'}
                         alt={item.name} 
                         className="w-full h-full object-cover rounded-xl"
                       />
                     </div>
                     
-                    {/* Product Details */}
                     <div className="flex-grow">
                       <div className="flex justify-between items-start mb-2">
                         <div>
@@ -126,7 +123,6 @@ const CartPage = () => {
                         />
                       </div>
                       
-                      {/* Quantity and Actions */}
                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-4">
                         <div className="flex items-center gap-4">
                           <div className="flex items-center border-2 border-gray-300 dark:border-gray-600 rounded-xl">
@@ -172,14 +168,12 @@ const CartPage = () => {
               ))}
             </div>
             
-            {/* Continue Shopping */}
             <div className="mt-6">
               <Link to="/products">
                 <Button icon={ShoppingCart}>← Continue Shopping</Button>
               </Link>
             </div>
 
-            {/* Saved for Later */}
             {savedForLater.length > 0 && (
               <div className="mt-8 bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Saved for Later</h3>
@@ -199,12 +193,10 @@ const CartPage = () => {
             )}
           </div>
           
-          {/* Order Summary */}
           <div>
             <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-6 border border-gray-200 dark:border-gray-700 sticky top-24">
               <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Order Summary</h2>
               
-              {/* Price Breakdown */}
               <div className="space-y-4 mb-6">
                 <div className="flex justify-between text-gray-600 dark:text-gray-400">
                   <span>Subtotal ({items.length} item{items.length !== 1 ? 's' : ''})</span>
@@ -227,7 +219,6 @@ const CartPage = () => {
                 </div>
               </div>
               
-              {/* Estimated Delivery */}
               <div className="bg-green-50 dark:bg-green-900/20 rounded-xl p-4 mb-6">
                 <div className="flex items-center text-green-600 dark:text-green-300 mb-2">
                   <Clock className="h-5 w-5 mr-2" />
@@ -237,7 +228,6 @@ const CartPage = () => {
                 <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Free standard shipping on orders over $25</p>
               </div>
               
-              {/* Checkout Button */}
               <Button 
                 variant="filled" 
                 color="indigo" 
@@ -248,7 +238,6 @@ const CartPage = () => {
                 Secure Checkout
               </Button>
               
-              {/* Security Information */}
               <div className="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-4 mb-6">
                 <div className="flex items-center text-gray-700 dark:text-gray-300 mb-3">
                   <Shield className="h-5 w-5 mr-2 text-green-500" />
@@ -269,7 +258,6 @@ const CartPage = () => {
                 </div>
               </div>
               
-              {/* Coupon Code */}
               <div className="border-t border-gray-200 dark:border-gray-700 pt-6">
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
                   <Tag className="h-4 w-4 inline mr-1" />

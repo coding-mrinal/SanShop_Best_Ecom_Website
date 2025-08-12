@@ -22,7 +22,6 @@ const Filters = ({ filters, onFiltersChange, isOpen, onToggle, productsCount }) 
     </div>
   );
 
-  // Define filter sections configuration
   const filterSections = [
     { key: 'category', title: 'Category', items: categories, type: 'radio', filterKey: 'category' },
     { key: 'price', title: 'Price Range', items: priceRanges, type: 'radio', filterKey: 'priceRange' },
@@ -75,7 +74,6 @@ const Filters = ({ filters, onFiltersChange, isOpen, onToggle, productsCount }) 
 
   return (
     <>
-      {/* Mobile Filter Toggle */}
       <div className="lg:hidden mb-4">
         <button
           onClick={onToggle}
@@ -89,7 +87,6 @@ const Filters = ({ filters, onFiltersChange, isOpen, onToggle, productsCount }) 
         </button>
       </div>
 
-      {/* Filter Panel */}
       <div className={`${isOpen ? 'block' : 'hidden'} lg:block`}>
         <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-6 shadow-xl sticky top-4">
           <div className="flex items-center justify-between mb-6">
@@ -101,7 +98,6 @@ const Filters = ({ filters, onFiltersChange, isOpen, onToggle, productsCount }) 
             )}
           </div>
           <div className="space-y-6">
-            {/* Search */}
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Search Products</label>
               <input
@@ -113,7 +109,6 @@ const Filters = ({ filters, onFiltersChange, isOpen, onToggle, productsCount }) 
               />
             </div>
 
-            {/* Dynamic Filter Sections */}
             {filterSections.map(section => (
               <FilterSection
                 key={section.key}

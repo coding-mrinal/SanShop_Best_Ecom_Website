@@ -1,4 +1,3 @@
-// src/pages/WishlistPage.jsx
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
@@ -16,7 +15,6 @@ const WishlistPage = () => {
   const [recentlyMoved, setRecentlyMoved] = useState(null);
   const [wishlistItems, setWishlistItems] = useState([]);
 
-  // Mock data initialization
   useEffect(() => {
     setWishlistItems([
       { id: 1, name: "Premium Headphones", price: 199.99, originalPrice: 249.99, image: "/api/placeholder/300/300", rating: 4.5, inStock: true, onSale: true, dateAdded: "2023-10-27" },

@@ -1,4 +1,3 @@
-// src/components/layout/Header.jsx
 import React, { createContext, useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Search, ShoppingCart, User, Menu, X, Heart, ChevronDown, Sun, Moon, Package } from 'lucide-react';
@@ -67,13 +66,12 @@ const Header = () => {
   }, []);
 
   const isActive = (path) => location.pathname === path;
-  const cls = (light, dark) => darkMode ? dark : light; // Shortened class helper
+  const cls = (light, dark) => darkMode ? dark : light;
 
   return (
     <header className={`${cls('bg-slate-50', 'bg-slate-900')} shadow-md sticky top-0 z-50 border-b ${cls('border-slate-200', 'border-slate-800')}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-14 sm:h-16">
-          {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <div className="bg-gradient-to-r from-teal-600 to-cyan-600 p-1.5 sm:p-2 rounded-lg">
               <Package className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
@@ -81,7 +79,6 @@ const Header = () => {
             <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">SanShop</span>
           </Link>
           
-          {/* Desktop Nav */}
           <nav className="hidden lg:flex space-x-1">
             {navLinks.map(({ path, label }) => (
               <Link
@@ -98,9 +95,7 @@ const Header = () => {
             ))}
           </nav>
           
-          {/* Actions */}
           <div className="flex items-center space-x-1 sm:space-x-2">
-            {/* Search - Desktop */}
             <div className="relative hidden md:block" ref={searchRef}>
               <div className={`flex items-center ${cls('bg-slate-100', 'bg-slate-800')} rounded-full px-3 py-1.5 sm:px-4 sm:py-2 transition-all duration-300 ${isSearchOpen && 'ring-2 ring-teal-500'}`}>
                 <Search className={`h-4 w-4 ${cls('text-slate-500', 'text-slate-400')}`} />
@@ -133,7 +128,6 @@ const Header = () => {
               )}
             </div>
             
-            {/* Theme Toggle */}
             <button 
               onClick={toggleDarkMode}
               className={`p-1.5 sm:p-2 rounded-full transition-colors ${darkMode ? 'bg-gray-700 hover:bg-gray-600 text-yellow-400' : 'bg-gray-200 hover:bg-gray-300 text-gray-700'}`}
@@ -142,13 +136,11 @@ const Header = () => {
               {darkMode ? <Sun className="h-4 w-4 sm:h-5 sm:w-5" /> : <Moon className="h-4 w-4 sm:h-5 sm:w-5" />}
             </button>
             
-            {/* Wishlist */}
             <Link to="/wishlist" className={`relative p-1.5 sm:p-2 rounded-full ${cls('hover:bg-slate-200', 'hover:bg-slate-800')}`} aria-label="Wishlist">
               <Heart className={`h-4 w-4 sm:h-5 sm:w-5 ${cls('text-slate-600', 'text-slate-300')}`} />
               <span className="absolute -top-0.5 -right-0.5 sm:-top-1 sm:-right-1 bg-red-500 text-white text-[0.6rem] sm:text-xs rounded-full h-3.5 w-3.5 sm:h-4 sm:w-4 flex items-center justify-center font-bold">2</span>
             </Link>
             
-            {/* Cart */}
             <Link to="/cart" className={`relative p-1.5 sm:p-2 rounded-full ${cls('hover:bg-slate-200', 'hover:bg-slate-800')}`} aria-label="Cart">
               <ShoppingCart className={`h-4 w-4 sm:h-5 sm:w-5 ${cls('text-slate-600', 'text-slate-300')}`} />
               {getTotalItems() > 0 && (
@@ -156,7 +148,6 @@ const Header = () => {
               )}
             </Link>
             
-            {/* User Menu */}
             <div className="relative" ref={userMenuRef}>
               <button
                 onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
@@ -189,14 +180,12 @@ const Header = () => {
               )}
             </div>
             
-            {/* Mobile Menu Button */}
             <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden p-2 rounded-lg" aria-label={isMenuOpen ? "Close menu" : "Open menu"} aria-expanded={isMenuOpen}>
               {isMenuOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
             </button>
           </div>
         </div>
         
-        {/* Mobile Search & Menu */}
         {isMenuOpen && (
           <>
             <div className="py-3 md:hidden">

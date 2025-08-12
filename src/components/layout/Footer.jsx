@@ -1,10 +1,8 @@
-// src/components/layout/Footer.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Mail, Phone, MapPin, Package } from 'lucide-react';
 
 const Footer = () => {
-  // Array for cleaner link mapping
   const quickLinks = [
     { to: '/', label: 'Home' },
     { to: '/products', label: 'Products' },
@@ -24,7 +22,6 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-10 md:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
           
-          {/* Company Info */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center space-x-2">
               <div className="bg-gradient-to-r from-teal-600 to-cyan-600 p-2 rounded-lg">
@@ -50,7 +47,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="text-lg font-semibold text-slate-800 dark:text-white mb-4">Quick Links</h4>
             <ul className="space-y-2">
@@ -67,7 +63,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Customer Service */}
           <div>
             <h4 className="text-lg font-semibold text-slate-800 dark:text-white mb-4">Customer Service</h4>
             <ul className="space-y-2">
@@ -84,7 +79,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
           <div>
             <h4 className="text-lg font-semibold text-slate-800 dark:text-white mb-4">Contact Us</h4>
             <ul className="space-y-3">

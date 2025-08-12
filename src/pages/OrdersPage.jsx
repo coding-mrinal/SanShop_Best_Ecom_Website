@@ -16,7 +16,6 @@ const OrderHistoryPage = () => {
   const [statusFilter, setStatusFilter] = useState('all');
   const [dateFilter, setDateFilter] = useState('all');
 
-  // Mock data initialization
   useEffect(() => {
     const mockOrders = [
       {
@@ -54,7 +53,6 @@ const OrderHistoryPage = () => {
     setFilteredOrders(mockOrders);
   }, []);
 
-  // Filter orders
   useEffect(() => {
     let result = orders.filter(order => {
       const matchesSearch = !searchTerm || order.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -131,7 +129,6 @@ const OrderHistoryPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50/80 via-gray-100/50 to-gray-200/50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-8 px-4 sm:px-6">
       <div className="container mx-auto">
-        {/* Header */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">My Orders</h1>
@@ -149,7 +146,6 @@ const OrderHistoryPage = () => {
           </div>
         </div>
         
-        {/* Filters */}
         <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-6 mb-8 border border-gray-200 dark:border-gray-700">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
@@ -183,7 +179,6 @@ const OrderHistoryPage = () => {
           </div>
         </div>
 
-        {/* Orders List */}
         <div className="space-y-6">
           {filteredOrders.length === 0 ? (
             <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-12 text-center border border-gray-200 dark:border-gray-700">
@@ -239,7 +234,6 @@ const OrderHistoryPage = () => {
           )}
         </div>
 
-        {/* Order Detail Modal */}
         {selectedOrder && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
             <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-gray-200 dark:border-gray-700">
@@ -253,7 +247,6 @@ const OrderHistoryPage = () => {
                 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                   <div className="lg:col-span-2">
-                    {/* Order Summary */}
                     <div className="mb-8">
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Order Summary</h3>
                       <div className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-6">
@@ -301,7 +294,6 @@ const OrderHistoryPage = () => {
                       </div>
                     </div>
                     
-                    {/* Shipping Information */}
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Shipping Information</h3>
                       <div className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-6">
@@ -331,7 +323,6 @@ const OrderHistoryPage = () => {
                   </div>
                   
                   <div>
-                    {/* Customer & Payment Information */}
                     {[
                       {
                         title: 'Customer Information',

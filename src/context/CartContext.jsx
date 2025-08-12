@@ -1,4 +1,3 @@
-// src/context/CartContext.jsx
 import React, { createContext, useContext, useReducer } from 'react';
 
 const CartContext = createContext();

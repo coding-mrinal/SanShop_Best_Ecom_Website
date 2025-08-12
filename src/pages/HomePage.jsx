@@ -1,24 +1,20 @@
-// src/pages/HomePage.jsx
 import React from "react";
 import { Link } from "react-router-dom";
-import { Star, ArrowRight, Sparkles } from "lucide-react"; // Removed ShoppingCart, Zap
+import { Star, ArrowRight, Sparkles } from "lucide-react";
 import TrendingNowCarousel from "../components/home/TrendingNowCarousel";
-import ShopByCategory from "../components/home/ShopByCategory"; // Import the new component
+import ShopByCategory from "../components/home/ShopByCategory";
 import ValueProposition from "../components/common/ValueProposition";
 import Testimonials from "../components/common/Testimonials";
-import { useTheme } from '../context/ThemeContext'; // Import useTheme hook
+import { useTheme } from '../context/ThemeContext';
 
-// Function to generate a unique Picsum URL with a random seed for 150x150 images
-// Note: Extra space in the URL template was removed.
 const generateRandomImageURL = (id, width = 150, height = 150) => {
   const seed = `product_${id}_${Math.floor(Math.random() * 10000)}`;
   return `https://picsum.photos/seed/${seed}/${width}/${height}`;
 };
 
 const HomePage = () => {
-  const { darkMode } = useTheme(); // Access darkMode state
+  const { darkMode } = useTheme();
 
-  // Conditional class helper function
   const cls = (light, dark) => (darkMode ? dark : light);
 
   const productNames = [
@@ -35,10 +31,8 @@ const HomePage = () => {
     "Robot Vacuum Cleaner", "Noise-Masking Sleep Earbuds", "Smart Thermostat",
     "Instant Pot Duo 7-in-1", "Wireless Gaming Keyboard", "Fitness Resistance Bands Set",
     "Digital Picture Frame", "Bluetooth Karaoke Microphone", "Electric Toothbrush Set"
-    // Add more names if expanding products again
   ];
 
-  // Featured Products: Reduced to 12
   const featuredProducts = Array.from({ length: 12 }, (_, i) => ({
     id: i + 1, name: productNames[i],
     price: (Math.random() * 100 + 10).toFixed(2), originalPrice: (Math.random() * 150 + 20).toFixed(2),
@@ -47,18 +41,16 @@ const HomePage = () => {
     isHot: Math.random() > 0.6, isFeatured: true,
   }));
 
-  // New Arrivals: Reduced to 6
   const newArrivals = Array.from({ length: 6 }, (_, i) => ({
-    id: i + 13, name: productNames[i + 12], // Adjust ID and name index to use next set of names
+    id: i + 13, name: productNames[i + 12],
     price: (Math.random() * 120 + 15).toFixed(2), originalPrice: (Math.random() * 180 + 25).toFixed(2),
-    image: generateRandomImageURL(i + 13), // Adjust ID for image seed
+    image: generateRandomImageURL(i + 13),
     rating: (Math.random() * 2 + 3).toFixed(1), reviewCount: Math.floor(Math.random() * 100) + 5,
     isNew: true, releaseDate: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000),
   }));
 
   const ProductCard = ({ product, type = "featured" }) => (
     <div className="group bg-white dark:bg-slate-700 rounded-xl sm:rounded-2xl shadow-md sm:shadow-lg hover:shadow-xl sm:hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:scale-[1.02] border border-gray-100 dark:border-gray-700">
-      {/* 1:1 Aspect Ratio Container for 150x150 image */}
       <div className="relative pb-[100%]">
         <img
           src={product.image}
@@ -79,7 +71,6 @@ const HomePage = () => {
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </div>
-      {/* Adjusted padding for tighter spacing */}
       <div className="p-2 sm:p-3">
         <h3 className="font-semibold xs:font-bold text-[0.7rem] xs:text-xs sm:text-sm mb-1.5 sm:mb-2 leading-tight line-clamp-2 text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
           {product.name}
@@ -102,7 +93,6 @@ const HomePage = () => {
             </span>
           </div>
         </div>
-        {/* Add To Cart Button - Updated with theme-specific classes */}
         <button
           className={`w-full py-1.5 sm:py-2 rounded-md sm:rounded-lg transition-all duration-300 shadow-sm hover:shadow-md text-[0.6rem] xs:text-[0.65rem] sm:text-xs font-medium border ${
             cls(
@@ -121,7 +111,6 @@ const HomePage = () => {
     <section className="py-10 sm:py-14 md:py-16 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-800 dark:via-gray-800 dark:to-slate-900">
       <div className="container mx-auto px-3 sm:px-4">
         <div className="text-center mb-6 sm:mb-8 md:mb-10">
-          {/* Enhanced title styling */}
           <h2 className={`text-2xl sm:text-3xl md:text-4xl font-bold font-serif leading-snug bg-gradient-to-r ${gradientFrom} ${gradientTo} bg-clip-text text-transparent mb-2 sm:mb-3`}>
             {title}
           </h2>
@@ -129,13 +118,10 @@ const HomePage = () => {
             {type === "featured" ? "Handpicked items just for you" : "Latest additions to our collection"}
           </p>
         </div>
-        {/* Grid adjusted for 6 products per row on large screens (lg:grid-cols-6) */}
-        {/* Responsive fallback: 2 cols on xs, 3 cols on sm/md, 6 cols on lg+ */}
         <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 xs:gap-2.5 sm:gap-3">
           {products.map((product) => (<ProductCard key={product.id} product={product} type={type} />))}
         </div>
         <div className="text-center mt-8 sm:mt-10">
-          {/* Updated "View All" button with theme-specific classes */}
           <Link
             to={linkTo}
             className={`inline-flex items-center px-5 py-2.5 sm:px-6 sm:py-3 font-bold text-sm sm:text-base rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-105 border ${
@@ -156,7 +142,6 @@ const HomePage = () => {
   return (
     <div>
       <TrendingNowCarousel />
-      {/* Use the new component */}
       <ShopByCategory />
       <ProductSection title="Featured Products" products={featuredProducts} type="featured"
         gradientFrom="from-blue-600" gradientTo="to-purple-600 dark:from-blue-400 dark:to-purple-400" linkTo="/products/featured" />

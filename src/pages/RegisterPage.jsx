@@ -1,4 +1,3 @@
-// src/pages/RegisterPage.jsx
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
@@ -26,7 +25,6 @@ const RegisterPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Mock registration - in a real app, this would be an API call
     if (formData.password === formData.confirmPassword) {
       login({ email: formData.email, name: formData.name });
       navigate('/profile');

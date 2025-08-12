@@ -19,7 +19,7 @@ const ProductDetailPage = () => {
     clothing: { 'Material': '100% Cotton', 'Care': 'Machine wash cold', 'Origin': 'Made in USA', 'Fit': 'Regular', 'Size Range': 'XS - XXL' },
     home: { 'Material': 'Premium Quality', 'Dimensions': '20 x 15 x 10 cm', 'Weight': '1.2 kg', 'Warranty': '1 year', 'Care': 'Easy maintenance' },
     beauty: { 'Type': 'Premium Quality', 'Ingredients': 'Natural & Organic', 'Skin Type': 'All skin types', 'Cruelty Free': 'Yes', 'Shelf Life': '24 months' }
-  }[product?.category] || { 'Brand': 'Premium Tech', 'Model': product?.name, 'Warranty': '2 years', 'Weight': '250g', 'Dimensions': '15 x 10 x 5 cm' }; // Default specs
+  }[product?.category] || { 'Brand': 'Premium Tech', 'Model': product?.name, 'Warranty': '2 years', 'Weight': '250g', 'Dimensions': '15 x 10 x 5 cm' };
 
   if (!product) {
     return (
@@ -43,7 +43,6 @@ const ProductDetailPage = () => {
           <ArrowLeft className="h-4 w-4 mr-2" /> Back to Products
         </button>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Images */}
           <div>
             <div className="mb-4"><img src={images[selectedImage]} alt={product.name} className="w-full h-96 object-cover rounded-2xl shadow-lg" /></div>
             <div className="flex space-x-4">
@@ -54,7 +53,6 @@ const ProductDetailPage = () => {
               ))}
             </div>
           </div>
-          {/* Info */}
           <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl">
             <h1 className="text-3xl font-bold mb-4 text-gray-800 dark:text-white">{product.name}</h1>
             <div className="flex items-center mb-4">
@@ -98,7 +96,6 @@ const ProductDetailPage = () => {
             </div>
           </div>
         </div>
-        {/* Tabs */}
         <div className="mt-16 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden">
           <div className="border-b border-gray-200 dark:border-gray-600">
             <nav className="flex space-x-8 px-8">
